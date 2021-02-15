@@ -1,0 +1,2 @@
+expo build:android
+pause
