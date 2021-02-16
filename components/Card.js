@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
 
 import { cardSize, imgSize } from '../constants/Constants';
 
@@ -21,9 +21,22 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 15,
     padding: 10,
-    elevation: 10,
     width: cardSize,
     height: cardSize + 40,
+    ...Platform.select({
+      ios:{
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+      },
+      android:{
+        elevation:10,
+      }
+    })    
   },
   container:{
     alignItems: 'center',

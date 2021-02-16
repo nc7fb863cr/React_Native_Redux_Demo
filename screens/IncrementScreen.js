@@ -83,14 +83,6 @@ const styles = StyleSheet.create({
   }
 });
 
-// mapping state to this page
-// switched to hook
-const mapStatetoProps = (state) => {
-  return {
-    devices: state.reducer.deviceList,
-  }
-}
-
 // mapping dispatch to this page
 // switched to hook
 const mapDispatchtoProps = (dispatch) => {
@@ -100,7 +92,7 @@ const mapDispatchtoProps = (dispatch) => {
 }
 
 // connect the state and dispatch with this screen, switched using hook
-// export default connect(mapStatetoProps, mapDispatchtoProps)(IncrementScreen);
+// export default connect(mapDispatchtoProps)(IncrementScreen);
 
 // useDispatch hook way
 export default IncrementScreen;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, Platform } from 'react-native';
 import { MaterialCommunityIcons, MaterialIcons, Ionicons, AntDesign } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 
@@ -22,6 +22,7 @@ const Button = (props) => {
     }
   }
 
+  // React.createElement(Element, props, children);
   // use this to create icon according to different module
   let Icon = React.createElement( handleElement(), {
     onPress: onPress,
@@ -44,10 +45,23 @@ const Button = (props) => {
 
 const styles = StyleSheet.create({
   container:{    
-    padding: 10,
-    elevation:15,    
+    padding: 10, 
     borderRadius: 15,
     backgroundColor: 'white',
+    ...Platform.select({
+      ios:{
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+      },
+      android:{
+        elevation:10,
+      }
+    })    
   },
 });
 
